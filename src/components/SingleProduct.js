@@ -1,6 +1,6 @@
 import './styles.css'
 
-const SingleProduct = ({prod}) => {
+const SingleProduct = ({prod, cart, setCart}) => {
   return (
     <div className="products">
       <img className= "productsImage" src={prod.thumbnail} alt={prod.title} />
@@ -8,7 +8,7 @@ const SingleProduct = ({prod}) => {
         <span style={{ fontWeight: 700 }}>{prod.title}</span>
         <span>₹ {prod.price}</span>
       </div>
-      {/* {cart.includes(prod) ? (
+      {cart.includes(prod) ? (
         <button
           className="add remove"
           onClick={() => setCart(cart.filter((c) => c.id !== prod.id))}
@@ -19,11 +19,7 @@ const SingleProduct = ({prod}) => {
         <button className="add" onClick={() => setCart([...cart, prod])}>
           Add to Cart
         </button>
-      )} */}
-
-<button >
-          Add to Cart
-        </button>
+      )}
     </div>
   )
 }
