@@ -1,12 +1,12 @@
-import { useContext } from 'react'
-import { Cart } from '../Context'
-import './styles.css'
+import { useContext } from "react";
+import { Cart } from "../Context";
+import "./styles.css";
 
-const SingleProduct = ({prod}) => {
-    const {cart, setCart} = useContext(Cart)
+const SingleProduct = ({ prod }) => {
+  const { cart, setCart } = useContext(Cart);
   return (
     <div className="products">
-      <img className= "productsImage" src={prod.thumbnail} alt={prod.title} />
+      <img className="productsImage" src={prod.thumbnail} alt={prod.title} />
       <div className="productDesc">
         <span style={{ fontWeight: 700 }}>{prod.title}</span>
         <span>₹ {prod.price}</span>
@@ -24,7 +24,7 @@ const SingleProduct = ({prod}) => {
         </button>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default SingleProduct
+export default SingleProduct;
