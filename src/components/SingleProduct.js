@@ -1,6 +1,9 @@
+import { useContext } from 'react'
+import { Cart } from '../Context'
 import './styles.css'
 
-const SingleProduct = ({prod, cart, setCart}) => {
+const SingleProduct = ({prod}) => {
+    const {cart, setCart} = useContext(Cart)
   return (
     <div className="products">
       <img className= "productsImage" src={prod.thumbnail} alt={prod.title} />

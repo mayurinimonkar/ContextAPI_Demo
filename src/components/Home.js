@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import SingleProduct from "./SingleProduct";
 import axios from "axios";
 
-const Home = ({ cart, setCart}) => {
+const Home = () => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState();
  
+ 
+
 
   useEffect(() => {
     const onLoadHandler = async () => {
@@ -34,7 +36,7 @@ const Home = ({ cart, setCart}) => {
     :
     <div className="productContainer">
       {products && products.map((prod) => (
-      <SingleProduct prod={prod} cart={cart} setCart={setCart} key={prod.id} />
+      <SingleProduct prod={prod} key={prod.id} />
     ))}
     </div>
     
