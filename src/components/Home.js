@@ -1,21 +1,34 @@
-import { randProductName, randUuid, randImg, randNumber } from "@ngneat/falso";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SingleProduct from "./SingleProduct";
+import axios from "axios";
 
 const Home = () => {
-  const productArray = [...Array(20)].map(() => {
-    return {
-      id: randUuid(),
-      name: randProductName(),
-      price: randNumber({ min: 10, max: 1000 }),
-      image: randImg(),
+  const [products, setProducts] = useState();
+
+  useEffect(() => {
+    const onLoadHandler = async () => {
+      await performAPICall();
     };
-  });
 
-  const [products, setProducts] = useState(productArray);
+    onLoadHandler();
 
-  console.log(productArray);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  const performAPICall = async () => {
+    try {
+      let response = await axios.get("https://dummyjson.com/products");
+      
+      setProducts(response.data.products);
+      
+    } catch (error) {
+      console.log(error);
+    }
+
+  };
+
+  
+
   return (
     <div className="productContainer">
       {products.map((prod) => (

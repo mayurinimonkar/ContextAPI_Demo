@@ -3,9 +3,9 @@ import './styles.css'
 const SingleProduct = ({prod}) => {
   return (
     <div className="products">
-      <img src={prod.image} alt={prod.name} />
+      <img className= "productsImage" src={prod.thumbnail} alt={prod.title} />
       <div className="productDesc">
-        <span style={{ fontWeight: 700 }}>{prod.name}</span>
+        <span style={{ fontWeight: 700 }}>{prod.title}</span>
         <span>₹ {prod.price}</span>
       </div>
       {/* {cart.includes(prod) ? (
